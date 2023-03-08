@@ -1,0 +1,35 @@
+A game of scrabble
+Functia input:
+Functia calculeaza coordonatele si directia fiecarui cuvant. Intrucat tabla are dimensiunile de 15x15, nicio coordonata nu va avea mai mult de 2 cifre.
+Returneaza X-ul Y-ul si D-ul ca numere.
+
+Task 1:
+Taskul 1 are ca scop asezarea cuvintelor pe tabla. Pentru asta am facut o functie (asez_pe_tabla)
+care este apelata pentru fiecare cuvant cat timp sunt primite linii.
+
+Task 2:
+In acest task se calculeaza scorul fara bonus pentru fiecare player.
+Pentru asta va fi apelata functie_scor_fara_bonus, care scade din fiecare litera valoarea caracetrului ‘A’,
+pentru a gasi pozitia corespunzatoare bonsului din vectorul points.
+
+Task 3:
+In cadrul taskului 3 se tin cont si de bonusuri. Pentru asta apelez functiile pentru bonus.
+
+Taskul 4:
+Pun pe tabla toate cuvintele pe care le primesc. Incep sa parcurg vectorul si primul cuvant pe care-l gasesc
+care poate fi pus pus pe tabla (lungimea lui nu iese din dimensiunile tablei si are primul caracter deja pe tabla)
+va fi pus prin functia asez_pe_tabla. Dupa ce gasesc cuvantul variabila stop devine 1 si for-urile se opresc.
+
+Taskul 5
+In prima parte pun toate cuvintele jucate pe table si le retin intr-un vector de cuvinte jucate.
+Pe langa asta, calculez punctajul tinand cont de bonusuri pentru fiecare player.
+Matricea scoruri 100x4 va retine informatii despre fiecare cuvant din words, fiind initializata cu -9999 pe fiecare pozitie.
+Parcurg vectorul words. Vad daca cuvantul pe care ma aflu nu a mai fost jucat deja, daca exista primul caracter pe tabla
+si daca poate fi pus fie pe orizontala fie pe verticala. Calculez scorul cu bonus pentru fiecare directie si-l retin pe cel mai mare posibil
+(comparand si cu el insusi). Acum matricea scoruri contine pe prima coloana scorul optim maxim pt fiecare cuvant,
+directia prin care va fi obtinut, linia si coloana. Compar scorurile, il aflu pe cel mai mare cu linia si coloana cele mai mici. Adun la scorul playerului 2 si vad daca va fi mai mare decat scorul primului player.
+
+Taskul 6
+Merge pe acelasi rationament ca taskul 5, diferenta e ca dupa fiecare cuvant jucat de primul player
+ se reactualizeaza scorul acestuia. De fiecare data player 2 va juca cuvantul cu scor maxim,
+ iar la fiecare cuvant nou primit se reinitializeaza matricea scoruri si se retin cuvintele in vectorul cuvinte_jucate.
